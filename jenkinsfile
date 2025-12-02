@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                // Check if Python is available on the Jenkins agent
+                echo 'Checking Python installation...'
+                sh 'python3 --version'
+            }
+        }
+        stage('Execute Python') {
+            steps {
+                // Execute the Python file
+                echo 'Executing Python Application...'
+                sh 'python3 SimplePythonApp.py'
+            }
+        }
+    }
+}
